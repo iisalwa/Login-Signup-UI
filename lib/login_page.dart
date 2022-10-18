@@ -1,0 +1,188 @@
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:login_signup_ui/signup_page.dart';
+
+class LoginPage extends StatelessWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomRight,
+                  colors: [
+                Colors.white,
+                Colors.white70,
+                Colors.lightBlueAccent,
+                Colors.lightBlue,
+                Colors.blue,
+              ])),
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 80,
+              ),
+              Image.asset(
+                'images/logo.png',
+              ),
+              // SizedBox(
+              //   height: 15,
+              // ),
+              // Text(
+              //   "Waves",
+              //   style: TextStyle(
+              //     color: Colors.lightBlueAccent,
+              //     fontSize: 25,
+              //   ),
+              // ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                  height: 450,
+                  width: 325,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 2,
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Text(
+                        "Welcome!",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      Container(
+                        width: 250,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              labelText: "Email Address",
+                              suffixIcon: Icon(
+                                FontAwesomeIcons.envelope,
+                                size: 15,
+                              )),
+                        ),
+                      ),
+                      Container(
+                        width: 250,
+                        child: TextField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                              labelText: "Password",
+                              suffixIcon: Icon(
+                                FontAwesomeIcons.lock,
+                                size: 15,
+                              )),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 5, right: 25),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                print("Forgot password clicked");
+                              },
+                              child: Text(
+                                'Forgot Password?',
+                                style: TextStyle(
+                                    color: Colors.black54, fontSize: 15),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                        width: 250,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 250,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black26,
+                                  blurRadius: 2,
+                                ),
+                              ],
+                              gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    // Colors.white70,
+                                    Colors.lightBlueAccent,
+                                    Colors.lightBlue
+                                  ]),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(10),
+                              child: Text(
+                                "Login",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignupPage()),
+                          );
+                        },
+                        child: Text(
+                          "Sign Up",
+                          style: TextStyle(
+                              // decoration: TextDecoration.underline,
+                              color: Colors.transparent,
+                              decorationColor: Colors.black,
+                              shadows: [
+                                Shadow(
+                                    color: Colors.black, offset: Offset(0, -5))
+                              ],
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ))
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
